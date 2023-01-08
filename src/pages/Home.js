@@ -13,8 +13,8 @@ function Home({ isAuth }) {
     };
 
     getPosts();
-  });
-
+  },[]);
+  console.log(postLists);
   const deletePost = async (id) => {
     const postDoc = doc(db, "posts", id);
     await deleteDoc(postDoc);
@@ -40,7 +40,6 @@ function Home({ isAuth }) {
               </div>
             </div>
             <div className="postTextContainer"> {post.postText} </div>
-            <h3>@{post.author.name}</h3>
           </div>
         );
       })}
